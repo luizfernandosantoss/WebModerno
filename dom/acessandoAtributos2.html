@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritório' data-urgencia="5" data-blabla="opa">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        //uma div com filho ul que tem o valor destino igual a escritório
+        const lista = document.querySelector('div ul[destino="escritório"]');
+        //o modo mais facil seria pegar por Id
+        console.log(document.getElementById('compras'));
+        console.log(document.querySelector('#compras'));
+        console.log('Elemento "ul"..........');
+        //pegar a lista de filhos de UL com espaço 
+        console.log('childNodes',lista.childNodes);
+        //não funciona porque é um atributo personalizado
+        console.log('destino',lista.destino);
+        //Para pegar pelo atributo deverá ser feito assim
+        console.log('getAttibute',lista.getAttribute('destino'));
+        //validar se tem o atributo return Boolean
+        console.log('hasAttribute',lista.hasAttribute('destino'));
+        //setar novo valor ao attributo destino
+        lista.setAttribute('destino','empresa');
+        //adicionar um novo atributo
+        lista.setAttribute('status','aberto');
+        //remover atributo
+        lista.removeAttribute('destino');
+        //pegar a lista de atributo data-
+        console.log(lista.dataset);
+        //pegat o atributo data-urgencia
+        console.log(lista.dataset.urgencia);
+        //alterar o valor do data
+        lista.dataset.urgencia = "batata";
+        console.log(lista.getAttribute('data-urgencia'));
+
+        //cuidado
+        const label = document.querySelector('label');
+        //isso não funciona porque for é atributo reservado da linguagem
+        console.log(label.for);
+        //para pegar o for tem que ser ultilizado
+        console.log(label.htmlFor);
+        //dar para pegar tambem pelo attributo
+        console.log(label.getAttribute('for'));
+
+    </script>
+</body>
+
+</html>

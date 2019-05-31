@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #03</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário</h1>
+    <form name="pesquisa" action="http://www.google.com.br/search">
+        <input type="text" name="q" placeholder="Digite o termo...">
+        <select name="hl">
+            <option value="pt-br">Português (Brasil)</option>
+            <option value="en-us">Inglês (Americano)</option>
+        </select>
+        <button>Pesquisar</button>
+    </form>
+    <script>
+        //pegar todos formulario da tela
+        console.log(document.forms);
+        //pegar o primeiro o primeiro formulario
+        console.log(document.forms[0]);
+        //pegar todos os elementos que tem o nome de pesquisa
+        console.log(document.getElementsByName('pesquisa'));
+        //pegar o documento que tenha o nome pesquisar
+        console.log(document.pesquisa);
+        //pegar o elemento que tenha o name pesquisa, e dentro dele
+        //pega o elemento que tenha o name q;
+        console.log(document.pesquisa.q);
+        //alterar o value dentro do elemento que tem o q;
+        document.pesquisa.q.value = "linux";
+        document.pesquisa.q.value = 'windows';
+        document.pesquisa.hl.value='en-us';
+    </script>
+</body>
+
+</html>

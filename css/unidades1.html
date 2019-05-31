@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Unidades #01</title>
+    <style>
+        /* ... */
+        .unidades-absolutas{
+            position: absolute;
+            /* A regras só funciona por causa do unidade absoluta */
+            font-size: 40px;
+            padding: 20px;
+            border: solid 5px;
+            margin: 30px;
+            width: 4cm; /*pouco usado*/
+            height: 20mm;
+            top: 150px;
+            left: 200px;
+        }
+        .unidades-relativas{
+            /* unidades relativas faz com que as unidades se altura
+            de acordo com o tamanho da Tela */
+            position: absolute;
+            /* 4 x o tamanho da fonte do browser  */
+            font-size: 4em;
+            padding: 5%;
+            border: solid 1vw black;
+            width: 20vw;
+            height: 15vh;
+            bottom: 5%;
+            right: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="unidades-absolutas">Opa!</div>
+    <div class="unidades-relativas">Epa!</div>
+</body>
+
+</html>

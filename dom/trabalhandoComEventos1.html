@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <!--na função on click tem que chamar sempre o evento-->
+        <!--onclick="navegarEm5s(event)"-->
+        <a eperar-um-pouco href="https://google.com.br" >Google</a>
+    </div>
+    <script>
+        
+        function navegarEm5s(e){
+            e.preventDefault()
+            console.log('saindo em Segundo');
+
+            setTimeout(() => {
+                const link = e.target;
+                window.location.href = e.target.href;
+            }, 5000)
+        }
+        //const a = document.querySelector('a');
+        //adicionando o evento de click no atributo a
+        //a.onclick = navegarEm5s;
+
+        //ultilizando a propriedade do elemento
+        const a = document.querySelector('[eperar-um-pouco]');
+        a.onclick = navegarEm5s;
+    </script>
+</body>

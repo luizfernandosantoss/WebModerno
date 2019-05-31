@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <p>Texto Inicial</p>
+    </div>
+    <script>
+        const div = document.querySelector('div');
+        //substituir o conteudo da div
+        div.innerHTML = 'Texto Alterado'
+
+        //substitui o elemento pelo texto   ultilizado muito pouco
+        //div.outerHTML = "Texto Alterado";
+        //insere um elemento antes do elemento selecionado
+        div.insertAdjacentHTML('beforebegin','<p>Antes do Inicio</p>');
+
+        //insere um elemento dentro do elemento selecionado
+        div.insertAdjacentHTML('afterbegin','<p>depois do inicio</p>')
+
+        //insere um elemento antes do fim do elemento selecionado
+        div.insertAdjacentHTML('beforeend','<p>Antes do Fim</>');
+        
+        //insere um elemento depois que acaba o elemento solicitado
+        div.insertAdjacentHTML('afterend','<p>Depois do Fim</p>')
+        
+        //pega o texto com tag
+        console.log(div.innerHTML);
+
+        //pega o somente o texto sem a tag
+        console.log(div.innerText)
+
+    </script>
+</body>
+
+</html>

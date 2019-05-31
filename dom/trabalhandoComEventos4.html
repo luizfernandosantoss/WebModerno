@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #04</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário</h1>
+    <form name="pesquisa" action="http://www.google.com.br/search">
+        <input type="text" name="q" placeholder="Digite o termo...">
+        <select name="hl">
+                <option value="pt-br">Português (Brasil)</option>
+                <option value="en-us">Inglês (Americano)</option>
+            </select>
+        <button wm-submit>Pesquisar</button>
+    </form>
+    <script>
+/*        //pegar o botão que tem o atributo wm-submit
+        const submit = document.querySelector('[wm-submit]');
+        //atrelar um evento de click no submit
+        submit.onclick = function(e){
+            //previni o evento padrão
+            e.preventDefault();
+            //pegar o form que é parente do botão
+            const form = e.target.parentNode;
+            //pegar os dados do formulario
+            const formData = new FormData(form);
+            //adicionar no formulario o atributo ajax
+            formData.append('ajax',true);
+            //pegar o formulario o elemento com nome de q
+            console.log(formData.get('q'));
+            //validar se ele tem o campo hl
+            console.log(formData.has('hl'));
+
+            for(let dado of formData){
+                console.log(dado)
+            }
+*/
+            //pegar o botão que tem o atributo wm-submit
+        const form = document.forms[0]
+        //atrelar um evento de click no form
+        form.onsubmit = function(e){
+            //previni o evento padrão
+            e.preventDefault();
+            //pegar o form que é parente do botão
+            const form = e.target;
+            //pegar os dados do formulario
+            const formData = new FormData(form);
+            //adicionar no formulario o atributo ajax
+            formData.append('ajax',true);
+            //pegar o formulario o elemento com nome de q
+            console.log(formData.get('q'));
+            //validar se ele tem o campo hl
+            console.log(formData.has('hl'));
+
+            for(let dado of formData){
+                console.log(dado)
+            }
+
+        }
+
+    </script>
+</body>

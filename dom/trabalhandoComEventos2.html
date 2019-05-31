@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>Elemento</div>
+    <script>
+        const item = document.querySelector('div');
+
+        item.style.position = 'absolute';
+
+        item.onmousemove = e => {
+            //colocar no item a opção de mover
+            const item = e.target;
+            item.style.cursor ='move';
+            console.log(e.clientY);
+            //
+            if(e.buttons){
+                //mover o elemento no eixo vertical   //eixo y    //eixo x
+                item.style.top = `${e.clientY - (item.clientHeight / 2)}px`;
+                //mover o elemento no eixo horizontal
+                e.target.style.left = `${e.clientX - (item.clientWidth / 2)}px`
+            }
+        }
+    </script>
+</body>
