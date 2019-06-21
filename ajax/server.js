@@ -6,5 +6,27 @@ app.use(express.static('.'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function(req,file, callback){
+        callback(null,'./upload');
+    },
+    filename: function(req,file,callback){
+        callback(null,`${Date.now()}_${file.originalname}`);
+    }
+})
+
+const upload = multer({ storage }).single('arquivo')
+
+app.post('/upload',(req,resp) => {
+    upload(req,resp,err => {
+        if(err){
+            return resp.end('Ocorreu um Erro')
+        }
+        resp.end("Concluido com sucesso.")
+    })
+})
+
 app.get('/teste',(req,res) => res.send('Ok'));
-app.listen(8090, () => console.log("Executando"));
+app.listen(8090, () => console.log("Executando..."));
