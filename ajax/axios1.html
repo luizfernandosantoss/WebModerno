@@ -12,6 +12,16 @@
     <h1>Estados</h1>
 
     <script>
-        // ...
+        const url = 'dados2/estados.json'
+        axios(url).then(resp =>{
+            if(resp.status == 200){
+                const itens = resp.data.reduce(
+                    (html, estado) => html + `<li>${estado.nome}</li>`, ''
+                )
+                document.body.insertAdjacentHTML('beforeend',`<ul>${itens}<ul>`)
+            }else if(resp.status >= 400){
+                console.log(resp)
+            }
+        })
     </script>
 </body>
